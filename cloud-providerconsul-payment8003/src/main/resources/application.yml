@@ -1,0 +1,12 @@
+server:
+  port: 8003
+spring:
+  application:
+    name: consul-provider-payment
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instance-id: payment8003
+        serviceName: myprefix-${spring.application.name}

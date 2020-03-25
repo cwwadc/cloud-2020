@@ -1,0 +1,12 @@
+server:
+  port: 90
+spring:
+  application:
+    name: consul-consumer-order
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instance-id: order-consul-90
+        serviceName: myprefix-${spring.application.name}
