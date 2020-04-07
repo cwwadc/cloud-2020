@@ -13,11 +13,11 @@ public class DemoMain04 {
     public static void main(String[] args) {
         List<Student> list = new ArrayList<>();
 
-        Student s1 = new Student("张三", 21);
-        Student s2 = new Student("李四", 19);
-        Student s3 = new Student("王五", 18);
-        Student s4 = new Student("程六", 17);
-        Student s5 = new Student("赵七", 20);
+        Student s1 = new Student("张三", 21, 99);
+        Student s2 = new Student("李四", 19,80);
+        Student s3 = new Student("王五", 18,88);
+        Student s4 = new Student("程六", 17,100);
+        Student s5 = new Student("赵七", 20,65);
 
         list.add(s1);
         list.add(s2);
