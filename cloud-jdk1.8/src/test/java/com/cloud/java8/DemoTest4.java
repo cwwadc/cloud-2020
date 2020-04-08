@@ -6,6 +6,8 @@ import org.junit.Test;
 import javax.print.DocFlavor;
 import javax.sound.midi.Soundbank;
 import java.util.*;
+import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class DemoTest4 {
@@ -77,6 +79,24 @@ public class DemoTest4 {
     public Object strHandler(Object str, MyFunction myFun){
 
         return myFun.getValue(str);
+    }
+
+    /**
+     * 方法引用 小试牛刀
+     */
+    @Test
+    public void test3(){
+        Supplier<Student> supplier = () -> new Student();
+        Supplier<Student> supplier1 = Student::new;
+        System.out.println(supplier1.get());
+
+        Function<Integer,String[]> function = String[]::new;
+        String[] str = function.apply(20);
+        System.out.println(str.length);
+        Function<Integer,Integer[]> function1 =Integer[]::new;
+        Integer[] str1 = function1.apply(10);
+        System.out.println(str1.length);
+
     }
 
 
