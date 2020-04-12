@@ -22,6 +22,7 @@
         <module>cloud-consumer-openfeign-order80</module>
         <module>cloud-jdk1.8</module>
         <module>cloud-provider-hystrix-payment8001</module>
+        <module>cloud-consumer-hystrix-order80</module>
     </modules>
 
 

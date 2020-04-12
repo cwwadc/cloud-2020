@@ -16,12 +16,13 @@ public class PaymentService {
 
     //服务降级
     @HystrixCommand(fallbackMethod = "paymentInfo_TimeOutHandler",commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "5000")
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "3000")
     })
     public String paymentInfo_TIME_OUT(Integer id){
-        int timeNumber =10000;
+        int timeNumber =5;
+//        int timeNumber = 10/0;
         try {
-            TimeUnit.MILLISECONDS.sleep(timeNumber);
+            TimeUnit.SECONDS.sleep(timeNumber);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -29,7 +30,7 @@ public class PaymentService {
     }
 
     public String paymentInfo_TimeOutHandler(Integer id) {
-        return "线程池： " + Thread.currentThread().getName() + " 8001系统繁忙系统报错,请稍后再试id: " + id;
+        return "线程池： " + Thread.currentThread().getName() + "系统繁忙，请稍后再试id: " + id;
     }
 
     // 服务熔断
@@ -49,6 +50,6 @@ public class PaymentService {
     }
 
     public String paymentCircuitBreaker_fallback(Integer id){
-        return "id不能为负数" + id;
+        return "进入服务熔断方法id：" + id;
     }
 }
